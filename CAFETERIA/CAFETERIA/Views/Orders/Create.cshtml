@@ -1,0 +1,99 @@
+﻿@model CAFETERIA.Models.Order
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<div class="bg-white">
+    <br />
+    <div class="masthead bg-white">
+        <div class="masthead-content space">
+            <br />
+            <div class="card container border-dark" style="width:45rem">
+                @using (Html.BeginForm("Create", "Orders", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <br />
+                    <div class="card-header bg-dark"></div>
+                    @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <br />
+                <center>  <img src="~/Content/Inicio/img/logo.jpg" alt="Alternate Text" width="150" height="100" /></center>
+                <p></p>
+                <center><h4 class="col-md-12"><b>Generar una Orden</b></h4></center>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <b>Nombre y Apellido</b>
+                    <div class="col-md-12">
+                        <p></p>
+                        @Html.EditorFor(model => model.ClientName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ClientName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b> Direccion a Entregar:</b>
+                    <p></p><p></p>
+                    <b> <div class="col-md-12"></b>
+                    @Html.EditorFor(model => model.DireccionClient, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DireccionClient, "", new { @class = "text-danger" })
+                </div>
+                <p></p>
+
+
+                <div class="form-group">
+                    <b>Producto Deseado:</b>
+                    <b><div class="col-md-12"></b>
+                    <p></p>
+                    <select name="ProductID" class="form-control">
+                        <option>Elige un Producto</option>
+                        @foreach (var item in ViewBag.Products)
+                        {
+                            <option value="@item.Id">@item.ProductName - @item.Price</option>
+                        }
+                    </select>
+                </div>
+                <p></p>
+               
+
+
+                <div class="form-group">
+                    <b>Cantidad de Producto</b>
+                    <div class="col-md-12">
+                        <p></p>
+                        @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b> Estado del Producto:</b>
+                    <div class="col-md-12">
+                        <p></p>
+                        @Html.EditorFor(model => model.OrderStatus, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.OrderStatus, "Llenar este campo con: PENDIENTE", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <p></p>
+                <br />
+                <div class="form-group" align="center">
+                    <div class="col-md-offset-2 col-md-12">
+
+                        <input type="submit" value="Ordenar" class="btn btn-outline-success btn-lg btn-block" />
+                        @Html.ActionLink("Volver al Catalogo", "Index", "Products", null, new { @class = "btn btn-danger btn-lg btn-block" })
+
+                    </div>
+                </div>
+            </div>
+
+                    <div class="card-footer bg-dark"></div>
+
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

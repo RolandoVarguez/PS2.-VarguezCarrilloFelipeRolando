@@ -1,0 +1,194 @@
+﻿@model CAFETERIA.Models.Product
+
+@{
+    ViewBag.Title = "";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Landing Page - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/Content/Productos/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="/Content/Productos/css/landing-page.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"><img src="~/Content/Inicio/img/logo.jpg" alt="Alternate Text" width="70" height="70" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse font-weight-bold" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="@Url.Action("Index", "Home")">Pagina Principal <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active" href="@Url.Action("Products","Home")">Nuestros Productos</a>
+                <a class="nav-item nav-link active" href="@Url.Action("Login","Account")">Empleados</a>
+                <a class="nav-item nav-link active" href="@Url.Action("Contact","Home")">Contactanos</a>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Masthead -->
+    <section>
+        <p></p>
+        <h1 class="text-center bg-dark text-white">@Html.DisplayFor(model  => model.ProductName)</h1>
+        <p></p>
+    </section>
+
+
+    <!--LISTA DE PRODUCTOS-->
+
+    <div class="row">
+
+
+        <div class="col-xl-3 col-md-3 mb-4 container">
+            <div class="card border-bottom-danger shadow h-100 py-2" style="width: 27rem;">
+                <div class="card-header bg-dark"> </div>
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <h2 class="text-center">Detalles de Producto</h2>
+                            <div class="form-horizontal">
+                                <p>
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @Html.HiddenFor(model => model.Id)
+
+                                    <br /><br />
+
+                                    <div class="form-group">
+                                        <h5>- Nombre del Producto:</h5>
+
+                                        @Html.DisplayFor(model => model.ProductName)
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <h5>-  Categoria del Producto:</h5>
+
+                                        @Html.DisplayFor(model => model.Description)
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <h5> &nbsp;&nbsp;-  Tamaño del Producto: </h5>
+
+                                        @Html.DisplayFor(model => model.Size)
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <h5>-  Precio del Producto: </h5>
+
+                                        @Html.DisplayFor(model => model.Price)
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <h5>- Estatus del Producto: </h5>
+
+                                        @Html.DisplayFor(model => model.Status)
+
+                                    </div>
+
+                                </p>
+                               
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="card-footer bg-dark">
+            </div>
+            </div>
+        </div>
+
+
+        <div class="col-xl-3 col-md-3 mb-4 container">
+            <div class="card border-bottom-danger shadow h-100 py-2" style="width: 27rem;">
+                <div class="card-header bg-dark"> </div>
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+
+                            <div class="form-horizontal">
+                                <p>
+
+                                    <img src="@Url.Action("getImage","Products", new { id = Model.Id })" width="380" height="380" />
+                                    <br />
+                                    @Html.ValidationMessageFor(model => model.Imagen, "", new { @class = "text-danger" })
+
+                                    <h3 class="text-center">
+                                        Imagen del Producto
+                                        </h3>
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="card-footer bg-dark"> </div>
+
+            </div>
+        </div>
+
+    </div>
+
+        <!-- FOOTER -->
+
+        <footer class="footer text-faded bg-dark text-center py-5 text-white">
+            <div class="container">
+
+                <p class="m-0 small">Copyright &copy;  by Rolando Varguez - STREAMER COFFEE 2020</p>
+            </div>
+        </footer>
+
+
+
+
+
+
+        <script src="/Content/Inicio/vendor/jquery/jquery.min.js"></script>
+        <script src="/Content/Inicio/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+</body>
+
+
+
+
+</html>
+

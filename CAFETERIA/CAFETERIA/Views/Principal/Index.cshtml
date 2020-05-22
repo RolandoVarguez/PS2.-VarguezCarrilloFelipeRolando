@@ -1,0 +1,39 @@
+﻿@model CAFETERIA.Models.ApplicationUser
+
+
+    <div class="bg-white">
+        <br />
+        <div class="masthead bg-white">
+            <div class="masthead-content space">
+                
+                <br />
+                <div class="card border-dark" style="width:67rem">
+                    <br />
+                    <div class="card-header bg-dark"></div>
+                    <br />
+                    <center><h1 class="text-center col-md-10"> <b>BIENVENIDO DE NUEVO</b></h1></center>
+                    <br />
+                    <center><h2 class="text-center col-md-10">¿Que deseas hacer hoy?</h2></center>
+
+                    <center>
+                        <div class="col-md-5">
+
+                            @Html.ActionLink("Ver Lista de Productos", "Index", "Products", null, new { @class = "btn btn-lg btn-block btn-dark" })
+                            @Html.ActionLink("Crear un Nuevo Producto", "Create", "Products", null, new { @class = "btn btn-lg btn-block btn-danger" })
+                            @Html.ActionLink("Ver Lista de Ordenes", "Index", "Orders", null, new { @class = "btn btn-lg btn-block btn-warning" })
+                            @Html.ActionLink("Darle un vistazo a mi Perfil", "ViewProfile", "Users", null, new { @class = "btn btn-lg btn-block btn-info" })
+
+
+                        </div>
+                    </center>
+
+
+
+                    <br />
+                    <div class="card-footer bg-dark"></div>
+                    <br />
+
+                </div>
+            </div>
+        </div>
+    </div>

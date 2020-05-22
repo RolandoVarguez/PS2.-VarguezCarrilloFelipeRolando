@@ -1,0 +1,77 @@
+﻿
+@model CAFETERIA.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+<title>Mi Perfil</title>
+<br />
+
+
+    <h2><div class="text-center text-dark"><b>Bienvenido a tu perfil @Model.UserName! </b></div></h2>
+<hr  class="border-bottom-success"/>
+
+
+<center>
+    <div class="">
+
+        <div class="col-md-6">
+
+            <div class="card">
+   
+                <div class="card-footer bg-gradient-dark"></div>
+                <br />
+
+                <center>
+                    <img src="~/Content/Catalogo/@Model.Picture" alt="Foto de Perfil" width="400" height="450" />
+                </center>
+
+                <br />
+
+                <div class="card-footer bg-gradient-dark"></div>
+            </div>
+
+        </div>
+        <br /><br />
+        <div class="col-md-12">
+
+            <div class="card" style="width:60rem">
+
+                <div class="card-header bg-gradient-dark"></div>
+                <div class="card-body">
+
+                    <form action="@Url.Action("EditProfile","Users")" method="post" enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <h3>
+                                <label class="col-md-12"><b>Cambiar mi Foto de Perfil</b></label>
+                                <p></p>
+                                <div class="col-md-7">
+                                    <input type="file" name="Picture" class="form-control-file" />
+                                </div>
+                            </h3>
+
+                        </div>
+                        <p></p>
+                        <div class="form-group col-md-5">
+                            <p>
+                                <input type="submit" name="submit" value="Guardar Cambios" class="btn btn-info btn-block btn-lg" />
+                            </p>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <div class="card-footer bg-gradient-dark"></div>
+            </div>
+
+        </div>
+
+    </div>
+</center>
+
+<br />
+

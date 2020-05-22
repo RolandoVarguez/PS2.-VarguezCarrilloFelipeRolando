@@ -1,0 +1,68 @@
+﻿@model IEnumerable<CAFETERIA.Models.Product>
+
+@{
+    ViewBag.Title = "Index de Productos";
+}
+<p></p>
+<p>
+    @Html.ActionLink("Agregar un producto", "Create", null, new { @class = "btn btn-dark btn-lg btn-block "})
+</p>
+
+<b>Productos Existentes en el negocio</b>
+<br /><br />
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+
+        <div class="col-xl-3 col-md-3 mb-4">
+                <div class="card border-bottom-dark shadow  border-left-dark shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-dark text-uppercase text-lg-left mb-1">@item.ProductName</div>
+
+                                @if (item.Status == "DISPONIBLE")
+                                {
+                                    <div class="h5 mb-0 font-weight-bold text-success">@item.Status</div>
+                                 
+                                }
+
+                                @if (item.Status == "AGOTADO")
+                                {
+                                    <div class="h5 mb-0 font-weight-bold text-danger">@item.Status</div>
+                                }
+
+
+                            </div>
+                            <div class="col-auto">
+                                @if (item.Description == "Bebida")
+                                {
+                                    <i class="fas fa-coffee fa-2x text-dark"></i>
+                                }
+
+                                @if (item.Description == "Alimento")
+                                {
+                                    <i class="fas fa-cheese fa-2x text-dark"></i>
+                                }
+                            </div>
+
+                        </div>
+                        <br />
+                        <div>
+                            <center>
+                                @Html.ActionLink("Modificar", "Edit", new { id = item.Id }, new { @class = "btn btn-outline-warning" })
+                               
+                                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                            </center>
+
+                      
+                        </div>
+                    </div>
+                </div>
+           
+        </div>
+    }
+
+</div>

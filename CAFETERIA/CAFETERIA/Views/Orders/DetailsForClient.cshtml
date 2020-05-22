@@ -1,0 +1,86 @@
+﻿@model CAFETERIA.Models.Order
+
+@{
+    ViewBag.Title = "DetailsForClient";
+    Layout = null;
+}
+
+
+<div class="bg-white container">
+    <br />
+    <div class="masthead bg-white">
+        <div class="masthead-content space">
+            <br />
+            <div class="card container border-dark text-lg-center" style="width:30rem">
+                <div>
+                    <br />
+                    <div class="card-header bg-dark text-black-50"></div>
+
+                    <dl class="dl-horizontal text-black-50 container">
+                        <br />
+                        <h2 class="text-center"><b>Orden No.@Html.DisplayFor(model => model.Id)</b></h2>
+                        <p></p>
+                        <p></p>
+                        <dt>
+                            <b>Producto Pedido:</b>
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Product.ProductName)
+                        </dd>
+
+                        <dt>
+                            <b>Ordenado por:</b>
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.ClientName)
+                        </dd>
+
+                        <dt>
+                            <b>Direccion de Entrega:</b>
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.DireccionClient)
+                        </dd>
+
+                        <dt>
+                            <b>Cantidad Pedida:</b>
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Quantity)
+                        </dd>
+
+                        <dt>
+                            <b>Total del Pedido:</b>
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Total)
+                        </dd>
+
+                        <dt>
+                            <b>Estado del Pedido:</b>
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.OrderStatus)
+                        </dd>
+
+                        <br />
+                        <p>
+
+                            @Html.ActionLink("Volver al Catalogo", "Index", null, new { @class = "btn btn-lg btn-danger btn-block" })
+                        </p>
+                    </dl>
+                    <div class="card-footer bg-dark text-black-50" </div>
+
+                </div>
+                <br />
+            </div>
+
+        </div>
+    </div>
+</div>

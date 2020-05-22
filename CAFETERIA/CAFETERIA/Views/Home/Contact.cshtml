@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="@Url.Action("Index", "Home")"><img src="~/Content/Inicio/img/logo.jpg" alt="Alternate Text" width="70" height="70" /></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse font-weight-bold" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="@Url.Action("Index", "Home")">Pagina Principal <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="@Url.Action("Products","Home")">Nuestros Productos</a>
+            <a class="nav-item nav-link active" href="@Url.Action("Login","Account")">Empleados</a>
+            <a class="nav-item nav-link active" href="@Url.Action("Contact","Home")">Contactanos</a>
+
+        </div>
+    </div>
+</nav>
+
+
+
+<div class="bg-white">
+    <br />
+    <div class="masthead bg-white">
+        <div class="masthead-content space">
+            <br />
+            <div class="card container border-dark" style="width:45rem">
+                <br />
+                <div class="card-header bg-dark"></div>
+                <br />
+                <center>
+                    <img src="~/Content/Inicio/img/logo.jpg" alt="Alternate Text" width="150" height="100" />
+                    <p></p>
+                    <h2>¿Quieres venir a nuestro establecimiento?</h2>
+                    <h4>Esta es nuestra direccion:</h4>
+                    <p>Calle Michelet s/n, Anzures, Miguel Hidalgo, 11590 Ciudad de México, CDMX</p>
+
+                    <br /><br />
+                    <p> O MANDANOS MENSAJE A NUESTRO CORREO</p>
+                    <p></p>
+                    <p class="fa fa-mail-reply">steamerContact@hotmail.com</p>
+                    <br />
+                    <p class="fa fa-phone-alt"> (664) 381-20-73</p>
+                
+
+                </center>
+                <div class="card-footer bg-dark"></div>
+                <br />
+            </div>
+
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,62 @@
+﻿@model CAFETERIA.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Registrarse";
+}
+
+<title>Registro - STEAMER</title>
+    <div class="bg-white">
+        <br />
+        <div class="masthead bg-white">
+            <div class="masthead-content space">
+                <br />
+                <div class="card container border-dark" style="width:25rem">
+                    <section id="loginForm">
+                        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            <br />
+                            <div class="card-header bg-dark"></div>
+                            @Html.AntiForgeryToken()
+                            <br />
+                            <center>  <img src="~/Content/Inicio/img/logo.jpg" alt="Alternate Text" width="150" height="100" /></center>
+                            <p></p>
+
+                            <center><h4 class="col-md-12"><b>Registrarse</b></h4></center>
+
+                            @Html.ValidationSummary("", new { @class = "text-danger" })
+                            <div class="form-group">
+                                <p class="container">Ingrese su Correo Electronico:</p>
+                                <div class="col-md-12">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p class="container">Ingrese su Contraseña:</p>
+                                <div class="col-md-12">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p class="container">Confirme su Contraseña:</p>
+                                <div class="col-md-12">
+                                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-12">
+                                    <center>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="submit" class="btn btn-outline-success btn-block btn-lg" value="Registrarse" />
+                                        @Html.ActionLink("Volver a Inicio", "Index", "Home", null, new { @class = "btn btn-danger btn-block btn-lg" })
+                                    </center>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="card-footer bg-dark"></div>
+                            <br />
+                        }
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>                    @section Scripts {
+                            @Scripts.Render("~/bundles/jqueryval")
+                        }
